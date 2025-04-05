@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Carbon\Carbon;
+use App\Models\NewJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -184,18 +185,15 @@ public function destroy($id)
     // You should always return a response (redirect in this case)
     return redirect()->route('All-Jobs')->with('info', 'Deletion process completed.'); // Fallback redirect
 }
-public function show($id)
+public function showJobDetails($id)
 {
-    // Using Query Builder
     $job = DB::table('new_job')->find($id);
 
-    // Or using Eloquent Model (if you have one)
-    // $job = NewJob::findOrFail($id); // findOrFail will automatically return a 404 if the job doesn't exist
-
     if (!$job) {
-        abort(404); // Handle the case where the job doesn't exist
+        abort(404); // Handle if the job doesn't exist
     }
 
-    return view('jobdetails', compact('job')); // Create a 'jobs/details.blade.php' view
+    return view('jobdetails', compact('job'));
 }
+
 }
