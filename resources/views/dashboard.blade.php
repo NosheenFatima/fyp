@@ -1,958 +1,234 @@
+@extends('layouts.masterlayout')
+
+@section('content')
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{-- {{ __('Dashboard') }} --}}
         </h2>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-{{-- 
-        @role('admin')
-
-        <div class="" style='display:flex;gap:30px'>
-
-                <div style=""> 
-                        <a href='{{route('show-category-form')}}' class='btn btn-primary'> Add Job Categpry </a>
-                </div>
-
-                  <div> 
-                        <a href='{{route('all-categories')}}' class='btn btn-primary'>View Jobs Categories</a>
-                </div>
-
-  <div> 
-                        <a href='{{route('show-new-job')}}' class='btn btn-primary'>Add new Job</a>
-                </div>
-                <div> 
-                        <a href='{{route('All-Jobs')}}' class='btn btn-primary'>view jobs</a>
-                </div>
-        </div>
-
-        @endrole
-
-
-    @role('Employee')
-
-        <div class="">
-
-              
-                  <div> 
-                        <a href='{{route('all-categories')}}' class='btn btn-primary'>View Jobs Categories</a>
-        </div>
-
-
-             
-
-        </div>
-
-        @endrole --}}
-
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
-
-
-{{-- @extends('layouts.mastertemp')
-@section('dashborad')
-
-	<!-- CSS here -->
- 
-            
-   </head>
-
-   <body>
- 
-      <div class="container-fluid mimin-wrapper">
-  
-          <!-- start:Left Menu -->
-            <div id="left-menu">
-              <div class="sub-left-menu scroll">
-                <ul class="nav nav-list">
-                    <li><div class="left-bg"></div></li>
-                    <li class="time">
-                      <h1 class="animated fadeInLeft">21:00</h1>
-                      <p class="animated fadeInRight">Sat,October 1st 2029</p>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" style="max-width:100%; margin:0;">
+<div class="container-fluid p-0">
+    <div class="row vh-100">
+        <div class="col-auto col-md-3 col-xl-2 bg-light border-end">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-dark min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">{{ config('app.name', 'Laravel') }}</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-0" style="font-size:22px">
+                            <i class="fa-home fa fs-4"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                            <i class="fa-angle-right fa right-arrow text-end ms-2"></i>
+                        </a>
+                        
                     </li>
-                    <li class="active ripple">
-                      <a class="tree-toggle nav-header"><span class="fa-home fa"></span> Dashboard 
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                          <li><a href="dashboard-v1.html">Dashboard v.1</a></li>
-                          <li><a href="dashboard-v2.html">Dashboard v.2</a></li>
-                      </ul>
-                        <li><a href="#"><span class="fa fa-calendar"></span> My Calendar</a></li>
+                    {{-- <li class="nav-item">
+                        <a href="#" class="nav-link px-0 align-middle">
+                            <i class="fa fa-calendar fs-4"></i> <span class="ms-1 d-none d-sm-inline">My Calendar</span>
+                        </a>
                     </li>
-                     <li class="ripple"><a href="calendar.html"><span class="fa fa-calendar-o"></span>Calendar</a></li>
-                       @role('admin')
-                    <li class="ripple">
-
-                 <div class="" style='display:flex;flex-direction:coloumn;gap:30px;flex-direction: column;align-items: center;justify-content: center;'>
-
-                <div style="width: 85%;height: 100%;"> 
-                        <a href='{{route('show-category-form')}}' class='btn btn-primary' style="width: 100%;Color:#da2461;"> Add Job Category </a>
-                </div>
-
-                  <div style="width: 85%;height: 100%; color:#da2461;"> 
-                        <a href='{{route('all-categories')}}' class='btn btn-primary' style="width: 100%;Color:#da2461;">View Jobs Categories</a>
-                </div>
-
-                <div style="width: 85%;height: 100%;color:#da2461;"> 
-                        <a href='{{route('show-new-job')}}' class='btn btn-primary' style="width: 100%; Color:#da2461;">Add new Job</a>
-                </div>
-                <div style="width: 85%;height: 100%;color:#da2461;"> 
-                        <a href='{{route('All-Jobs')}}' class='btn btn-primary' style="width: 100%;Color:#da2461;">view jobs</a>
-                </div>
-        </div>
-                    </li>
-         @endrole
-           @role('Employee')
-                  
-                    <li class="ripple">
-
-                 <div class="" style='display:flex;flex-direction:coloumn;gap:30px;flex-direction: column;align-items: center;justify-content: center;'>
-
-    
-
-                  <div style="width: 85%;height: 100%;"> 
-                        <a href='{{route('all-categories')}}' class='btn btn-primary' style="width: 100%;">View Jobs Categories</a>
-                </div>
-
-                
-                <div style="width: 85%;height: 100%;"> 
-                        <a href='{{route('All-Jobs')}}' class='btn btn-primary' style="width: 100%;">view jobs</a>
-                </div>
-        </div>
-                    </li>
-           @endrole
-                    <li><a href="/">Go Back To The Page</a></li>
-                  </ul>
-                </div>
-            </div>
-                      <!-- start: content -->
-            <div id="content">
-                <div class="panel">
-                  <div class="panel-body">
-                      <div class="col-md-6 col-sm-12">
-                        <h3 class="animated fadeInLeft">Customer Service</h3>
-                        <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Batavia,Indonesia</p>
-
-                        <ul class="nav navbar-nav">
-                            <li><a href="" >Impedit</a></li>
-                            <li><a href="" class="active">Virtute</a></li>
-                            <li><a href="">Euismod</a></li>
-                            <li><a href="">Explicar</a></li>
-                            <li><a href="">Rebum</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="col-md-6 col-sm-6 text-right" style="padding-left:10px;">
-                          <h3 style="color:#DDDDDE;"><span class="fa  fa-map-marker"></span> Banyumas</h3>
-                          <h1 style="margin-top: -10px;color: #ddd;">30<sup>o</sup></h1>
+                    <li class="nav-item">
+                        <a href="calendar.html" class="nav-link px-0 align-middle">
+                            <i class="fa fa-calendar-o fs-4"></i> <span class="ms-1 d-none d-sm-inline">Calendar</span>
+                        </a>
+                    </li> --}}
+                    @role('admin')
+                    <li class="nav-item">
+                        <div class="d-grid gap-2 mt-3 w-100">
+                    <div style="width: 100%;height: 100%;color:#da2461;display: flex;flex-direction: column;gap: 30px;">
+    <a href='{{ route('show-category-form') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-plus"></i> Add Job Category
+    </a>
+    <a href='{{ route('all-categories') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-list"></i> View Jobs Categories
+    </a>
+    <a href='{{ route('show-new-job') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-plus-circle"></i> Add new Job
+    </a>
+    <a href='{{ route('All-Jobs') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-briefcase"></i> View Jobs
+    </a>
+    <a href='{{ route('view-user') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-users"></i> View Applicant
+    </a>
+</div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                           <div class="wheather">
-                            <div class="stormy rainy animated pulse infinite">
-                              <div class="shadow">
-                                
-                              </div>
+                    </li>
+                    @endrole
+                    @role('Employee')
+                    <li class="nav-item mt-3">
+                        <div class="d-grid gap-2 w-100">    <div style="width: 100%;height: 100%;color:#da2461;display: flex;flex-direction: column;gap: 30px;">
+    <a href='{{ route('show-category-form') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-plus"></i> Add Job Category
+    </a>
+    <a href='{{ route('all-categories') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-list"></i> View Jobs Categories
+    </a>
+    {{-- <a href='{{ route('show-new-job') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-plus-circle"></i> Add new Job
+    </a> --}}
+    <a href='{{ route('All-Jobs') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-briefcase"></i> View Jobs
+    </a>
+    <a href='{{ route('view-user') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-users"></i> View Applicant
+    </a>
+</div>
+                        </div>
+                    </li>
+                    @endrole
+                        @role('jobSeeker')
+                    <li class="nav-item mt-3">
+                        <div class="d-grid gap-2 w-100">    <div style="width: 100%;height: 100%;color:#da2461;display: flex;flex-direction: column;gap: 30px;">
+   
+    <a href='{{ route('all-categories') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-list"></i> View Jobs Categories
+    </a>
+
+    <a href='{{ route('All-Jobs') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+        <i class="fas fa-briefcase"></i> View Jobs
+    </a>
+  
+</div>
+                        </div>
+                    </li>
+                    @endrole
+                    <li class="nav-item mt-3">
+                        <a href="/" class="nav-link align-middle px-0 text-dark">
+                            <i class="fa fa-arrow-left fs-4"></i> <span class="ms-1 d-none d-sm-inline">Go Back To The Page</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col py-3">
+            <div class="container-fluid">
+                <div class="row">
+               @role('admin')
+                    <div class="col-md-6">
+                        <h3 class="animated fadeInLeft" style="color:#fb246a; font-size:30px;">Admin Dashboard</h3>  
+                    </div>
+                    @endrole
+                     @role('Employee')
+                     <div class="col-md-6">
+                        <h3 class="animated fadeInLeft" style="color:#fb246a; font-size:30px;">Employee Dashboard</h3>  
+                    </div>
+                     @endrole
+                       @role('jobSeeker')
+                     <div class="col-md-6">
+                        <h3 class="animated fadeInLeft" style="color:#fb246a; font-size:30px;">Applicant Dashboard</h3>  
+                    </div>
+                     @endrole
+                    <div class="col-md-6 text-end">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <div class="me-3">
+                                <h3 class="text-secondary"><i class="fa fa-map-marker"></i> Banyumas</h3>
+                                <h1 class="mt-n2 text-secondary">30<sup>o</sup></h1>
                             </div>
-                            <div class="sub-wheather">
-                              <div class="thunder">
-                                
-                              </div>
-                              <div class="rain">
-                                  <div class="droplet droplet1"></div>
-                                  <div class="droplet droplet2"></div>
-                                  <div class="droplet droplet3"></div>
-                                  <div class="droplet droplet4"></div>
-                                  <div class="droplet droplet5"></div>
-                                  <div class="droplet droplet6"></div>
+                            <div class="wheather">
+                                <div class="stormy rainy animated pulse infinite">
+                                    <div class="shadow"></div>
+                                </div>
+                                <div class="sub-wheather">
+                                    <div class="thunder"></div>
+                                    <div class="rain">
+                                        <div class="droplet droplet1"></div>
+                                        <div class="droplet droplet2"></div>
+                                        <div class="droplet droplet3"></div>
+                                        <div class="droplet droplet4"></div>
+                                        <div class="droplet droplet5"></div>
+                                        <div class="droplet droplet6"></div>
+                                    </div>
                                 </div>
                             </div>
-                          </div>
-                        </div>                   
+                        </div>
                     </div>
-                  </div>                    
                 </div>
 
-                <div class="col-md-12" style="padding:20px;">
-                    <div class="col-md-12 padding-0">
-                        <div class="col-md-8 padding-0">
-                            <div class="col-md-12 padding-0">
-                                <div class="col-md-6">
-                                    <div class="panel box-v1">
-                                      <div class="panel-heading bg-white border-none">
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                          <h4 class="text-left">Visit</h4>
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-white border-0">
+                                    <div class="card-header bg-white border-0">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h4 class="card-title text-start">Visit</h4>
+                                            <h4><i class="fa fa-user icons icon text-end"></i></h4>
                                         </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                           <h4>
-                                           <span class="icon-user icons icon text-right"></span>
-                                           </h4>
-                                        </div>
-                                      </div>
-                                      <div class="panel-body text-center">
-                                        <h1>51181,320</h1>
-                                        <p>User active</p>
-                                        <hr/>
-                                      </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="panel box-v1">
-                                      <div class="panel-heading bg-white border-none">
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                          <h4 class="text-left">Orders</h4>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                           <h4>
-                                           <span class="icon-basket-loaded icons icon text-right"></span>
-                                           </h4>
-                                        </div>
-                                      </div>
-                                      <div class="panel-body text-center">
-                                        <h1>51181,320</h1>
-                                        <p>New Orders</p>
+                                    <div class="card-body text-center">
+                                        <h1 style=" font-size: 36px;color: #6c757d;">51181,320</h1>
+                                        <p class="text-muted">User active</p>
                                         <hr/>
-                                      </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="panel box-v4">
-                                    <div class="panel-heading bg-white border-none">
-                                      <h4><span class="icon-notebook icons"></span> Agenda</h4>
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-white border-0">
+                                    <div class="card-header bg-white border-0">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h4 class="card-title text-start">Orders</h4>
+                                            <h4><i class="fa fa-basket-loaded icons icon text-end"></i></h4>
+                                        </div>
                                     </div>
-                                    <div class="panel-body padding-0">
-                                        <div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
+                                    <div class="card-body text-center">
+                                        <h1 style=" font-size: 36px;color: #6c757d;">51181,320</h1>
+                                        <p class="text-muted">New Orders</p>
+                                        <hr/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="card bg-white border-0">
+                                    <div class="card-header bg-white border-0">
+                                        <h4><i class="fa fa-notebook icons"></i> Agenda</h4>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <div class="bg-light p-3">
                                             <h2>Checking Your Server!</h2>
-                                            <p>Daily Check on Server status, mostly looking at servers with alerts/warnings</p>
-                                            <b><span class="icon-clock icons"></span> Today at 15:00</b>
+                                            <p class="text-muted">Daily Check on Server status, mostly looking at servers with alerts/warnings</p>
+                                            <b><i class="fa fa-clock icons"></i> Today at 15:00</b>
                                         </div>
                                         <div class="calendar">
-                                          
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="col-md-12 padding-0">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="{{asset('asset-temp/img/bg2.jpg')}}" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="{{asset('asset/img/avatar.jpg')}}" class="img-responsive"/>
-                                      <h4>Akihiko Avaron</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                            </div>
-
-                            <div class="col-md-12 padding-0">
-                              <div class="panel box-v3">
-                                <div class="panel-heading bg-white border-none">
-                                  <h4>Report</h4>
-                                </div>
-                                <div class="panel-body">
-                                    
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-folder icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Document Handling</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-pie-chart icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">UI/UX Development</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="19" aria-valuemin="0" aria-valuemax="100" style="width: 19%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-energy icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Server Optimation</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-user icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">User Status</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                   <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-fire icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Firewall Status</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="panel-footer bg-white border-none">
-                                    <center>
-                                      <input type="button" value="download as pdf" class="btn btn-danger box-shadow-none"/>
-                                    </center>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="col-md-12 padding-0">
-                              <div class="panel bg-light-blue">
-                                <div class="panel-body text-white">
-                                   <p class="animated fadeInUp quote">Lorem ipsum dolor sit amet, consectetuer adipiscing elit Ut wisi..."</p>
-                                    <div class="col-md-12 padding-0">
-                                      <div class="text-left col-md-7 col-xs-12 col-sm-7 padding-0">
-                                        <span class="fa fa-twitter fa-2x"></span>
-                                        <span>22 May, 2015 via mobile</span>
-                                      </div>
-                                      <div style="padding-top:8px;" class="text-right col-md-5 col-xs-12 col-sm-5 padding-0">
-                                        <span class="fa fa-retweet"></span> 2000
-                                        <span class="fa fa-star"></span> 3000
-                                      </div>
+                                            </div>
                                     </div>
                                 </div>
-                              </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <div class="card box-v2">
+                                <img src="{{asset('asset-temp/img/bg2.jpg')}}" class="card-img-top" alt="Cover Image">
+                                <div class="box-v2-detail text-center mt-n5">
+                                    <img src="{{asset('asset-temp/img/avatar.jpg')}}" class="rounded-circle img-thumbnail" alt="User Avatar" width="100">
+                                    <h4 class="card-title mt-2">Akihiko Avaron</h4>
+                                </div>
+                                <div class="card-body text-center">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h3>2.000</h3>
+                                            <p class="text-muted">Post</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <h3>2.232</h3>
+                                            <p class="text-muted">share</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <h3>4.320</h3>
+                                            <p class="text-muted">photos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                  <div class="col-md-12 card-wrap padding-0">
-                    <div class="col-md-6">
-                        <div class="panel">
-                          <div class="panel-heading bg-white border-none" style="padding:20px;">
-                            <div class="col-md-6 col-sm-6 col-sm-12 text-left">
-                              <h4>Line Chart</h4>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-sm-12">
-                                <div class="mini-onoffswitch pull-right onoffswitch-danger" style="margin-top:10px;">
-                                  <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
-                                  <label class="onoffswitch-label" for="myonoffswitch1"></label>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="panel-body" style="padding-bottom:50px;">
-                              <div id="canvas-holder1">
-                                    <canvas class="line-chart" style="margin-top:30px;height:200px;"></canvas>
-                              </div>
-                              <div class="col-md-12" style="padding-top:20px;">
-                                  <div class="col-md-4 col-sm-4 col-xs-6 text-center">
-                                      <h2 style="line-height:.4;">$100.21</h2>
-                                      <small>Total Laba</small>
-                                  </div>
-                                  <div class="col-md-4 col-sm-4 col-xs-6 text-center">
-                                      <h2 style="line-height:.4;">2000</h2>
-                                      <small>Total Barang</small>
-                                  </div>
-                                  <div class="col-md-4 col-sm-4 col-xs-12 text-center">
-                                      <h2 style="line-height:.4;">$291.1</h2>
-                                      <small>Total Pengeluaran</small>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="panel">
-                          <div class="panel-heading bg-white border-none" style="padding:20px;">
-                            <div class="col-md-6 col-sm-6 col-sm-12 text-left">
-                              <h4>Orders</h4>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-sm-12">
-                                <div class="mini-onoffswitch pull-right onoffswitch-primary" style="margin-top:10px;">
-                                  <input type="checkbox" name="onoffswitch3" class="onoffswitch-checkbox" id="myonoffswitch3" checked>
-                                  <label class="onoffswitch-label" for="myonoffswitch3"></label>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="panel-body" style="padding-bottom:50px;">
-                              <div id="canvas-holder1">
-                                <canvas class="bar-chart"></canvas>
-                              </div>
-                              <div class="col-md-12 padding-0" >
-                                <div class="col-md-4 col-sm-4 hidden-xs" style="padding-top:20px;">
-                                  <canvas class="doughnut-chart2"></canvas>
-                                </div>
-                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <h4>Progress Produksi barang</h4>
-                                    <p>Sed hendrerit. Curabitur blandit mollis lacus. Duis leo. Sed libero.fusce commodo aliquam arcu..</p>
-                                    <div class="progress progress-mini">
-                                      <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-                                        <span class="sr-only">60% Complete</span>
-                                      </div>
-                                    </div>
-                                </div>
-                              </div>
-                          </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="panel bg-green text-white">
-                            <div class="panel-body">
-                              <div class="col-md-8 col-sm-8 col-xs-12">
-                                <div class="maps" style="height:300px;">
-                                </div>
-                              </div>
-                              <div class="col-md-4 col-sm-4 col-xs-12">
-                                  <canvas class="doughnut-chart hidden-xs"></canvas>
-                                  <div class="col-md-12">
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                      <h1>72.993</h1>
-                                      <p>People</p>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                       <h1>12.000</h1>
-                                       <p>Active</p>
-                                    </div>
-                                  </div>
-                              </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-      		  </div>
-          <!-- end: content -->
 
-    
-          <!-- start: right menu -->
-            <div id="right-menu">
-              <ul class="nav nav-tabs">
-                <li class="active">
-                 <a data-toggle="tab" href="#right-menu-user">
-                  <span class="fa fa-comment-o fa-2x"></span>
-                 </a>
-                </li>
-                <li>
-                 <a data-toggle="tab" href="#right-menu-notif">
-                  <span class="fa fa-bell-o fa-2x"></span>
-                 </a>
-                </li>
-                <li>
-                  <a data-toggle="tab" href="#right-menu-config">
-                   <span class="fa fa-cog fa-2x"></span>
-                  </a>
-                 </li>
-              </ul>
-
-              <div class="tab-content">
-                <div id="right-menu-user" class="tab-pane fade in active">
-                  <div class="search col-md-12">
-                    <input type="text" placeholder="search.."/>
-                  </div>
-                  <div class="user col-md-12">
-                   <ul class="nav nav-list">
-                    <li class="online">
-                      <img src="{{asset('asset-temp/img/avatar.jpg')}}" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="away">
-                      <img src="{{('asset-temp/img/avatar.jpg')}}" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-desktop"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="{{asset('asset-temp/img/avatar.jpg')}}" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="{{asset('asset-temp/img/avatar.jpg')}}" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="online">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="online">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="online">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="online">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-
-                  </ul>
-                </div>
-                <!-- Chatbox -->
-                <div class="col-md-12 chatbox">
-                  <div class="col-md-12">
-                    <a href="#" class="close-chat">X</a><h4>Akihiko Avaron</h4>
-                  </div>
-                  <div class="chat-area">
-                    <div class="chat-area-content">
-                      <div class="msg_container_base">
-                        <div class="row msg_container send">
-                          <div class="col-md-9 col-xs-9 bubble">
-                            <div class="messages msg_sent">
-                              <p>that mongodb thing looks good, huh?
-                                tiny master db, and huge document store</p>
-                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                              </div>
-                            </div>
-                            <div class="col-md-3 col-xs-3 avatar">
-                              <img src="{{asset('asset/img/avatar.jpg')}}" class=" img-responsive " alt="user name">
-                            </div>
-                          </div>
-
-                          <div class="row msg_container receive">
-                            <div class="col-md-3 col-xs-3 avatar">
-                              <img src="{{asset('asset/img/avatar.jpg')}}" class=" img-responsive " alt="user name">
-                            </div>
-                            <div class="col-md-9 col-xs-9 bubble">
-                              <div class="messages msg_receive">
-                                <p>that mongodb thing looks good, huh?
-                                  tiny master db, and huge document store</p>
-                                  <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="row msg_container send">
-                              <div class="col-md-9 col-xs-9 bubble">
-                                <div class="messages msg_sent">
-                                  <p>that mongodb thing looks good, huh?
-                                    tiny master db, and huge document store</p>
-                                    <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                                  </div>
-                                </div>
-                                <div class="col-md-3 col-xs-3 avatar">
-                                  <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                                </div>
-                              </div>
-
-                              <div class="row msg_container receive">
-                                <div class="col-md-3 col-xs-3 avatar">
-                                  <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                                </div>
-                                <div class="col-md-9 col-xs-9 bubble">
-                                  <div class="messages msg_receive">
-                                    <p>that mongodb thing looks good, huh?
-                                      tiny master db, and huge document store</p>
-                                      <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div class="row msg_container send">
-                                  <div class="col-md-9 col-xs-9 bubble">
-                                    <div class="messages msg_sent">
-                                      <p>that mongodb thing looks good, huh?
-                                        tiny master db, and huge document store</p>
-                                        <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-3 col-xs-3 avatar">
-                                      <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                                    </div>
-                                  </div>
-
-                                  <div class="row msg_container receive">
-                                    <div class="col-md-3 col-xs-3 avatar">
-                                      <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                                    </div>
-                                    <div class="col-md-9 col-xs-9 bubble">
-                                      <div class="messages msg_receive">
-                                        <p>that mongodb thing looks good, huh?
-                                          tiny master db, and huge document store</p>
-                                          <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="chat-input">
-                                <textarea placeholder="type your message here.."></textarea>
-                              </div>
-                              <div class="user-list">
-                                <ul>
-                                  <li class="online">
-                                    <a href=""  data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <div class="user-avatar"><img src="asset/img/avatar.jpg" alt="user name"></div>
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="offline">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="online">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="offline">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="offline">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="offline">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="online">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                          <div id="right-menu-notif" class="tab-pane fade">
-
-                            <ul class="mini-timeline">
-                              <li class="mini-timeline-highlight">
-                               <div class="mini-timeline-panel">
-                                <h5 class="time">07:00</h5>
-                                <p>Coding!!</p>
-                              </div>
-                            </li>
-
-                            <li class="mini-timeline-highlight">
-                             <div class="mini-timeline-panel">
-                              <h5 class="time">09:00</h5>
-                              <p>Playing The Games</p>
-                            </div>
-                          </li>
-                          <li class="mini-timeline-highlight">
-                           <div class="mini-timeline-panel">
-                            <h5 class="time">12:00</h5>
-                            <p>Meeting with <a href="#">Clients</a></p>
-                          </div>
-                        </li>
-                        <li class="mini-timeline-highlight mini-timeline-warning">
-                         <div class="mini-timeline-panel">
-                          <h5 class="time">15:00</h5>
-                          <p>Breakdown the Personal PC</p>
-                        </div>
-                      </li>
-                      <li class="mini-timeline-highlight mini-timeline-info">
-                       <div class="mini-timeline-panel">
-                        <h5 class="time">15:00</h5>
-                        <p>Checking Server!</p>
-                      </div>
-                    </li>
-                    <li class="mini-timeline-highlight mini-timeline-success">
-                      <div class="mini-timeline-panel">
-                        <h5 class="time">16:01</h5>
-                        <p>Hacking The public wifi</p>
-                      </div>
-                    </li>
-                    <li class="mini-timeline-highlight mini-timeline-danger">
-                      <div class="mini-timeline-panel">
-                        <h5 class="time">21:00</h5>
-                        <p>Sleep!</p>
-                      </div>
-                    </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                  </ul>
-
-                </div>
-                <div id="right-menu-config" class="tab-pane fade">
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Notification</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-info">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch1"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Custom Designer</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-danger">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch2"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Autologin</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-success">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch3" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch3"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Auto Hacking</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-warning">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch4" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch4"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Auto locking</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch5" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch5"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>FireWall</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch6" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch6"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>CSRF Max</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-warning">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch7" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch7"></label>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Man In The Middle</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-danger">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch8" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch8"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Auto Repair</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-success">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch9" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch9"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <input type="button" value="More.." class="btnmore">
-                  </div>
-
-                </div>
-              </div>
-            </div>  
-          <!-- end: right menu -->
-            <!-- start: Javascript -->
     <script src="{{asset('asset-temp/js/jquery.min.js')}}"></script>
     <script src="{{asset('asset-temp/js/jquery.ui.min.js')}}"></script>
     <script src="{{asset('asset-temp/js/bootstrap.min.js')}}"></script>
@@ -1160,70 +436,7 @@
         
         //  end:  Chart =============
 
-        // start: Calendar =========
-         $('.dashboard .calendar').fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            defaultDate: '2025-02-12',
-            businessHours: true, // display business hours
-            editable: true,
-            events: [
-                {
-                    title: 'Business Lunch',
-                    start: '2015-02-03T13:00:00',
-                    constraint: 'businessHours'
-                },
-                {
-                    title: 'Meeting',
-                    start: '2025-02-13T11:00:00',
-                    constraint: 'availableForMeeting', // defined below
-                    color: '#20C572'
-                },
-                {
-                    title: 'Conference',
-                    start: '2025-02-18',
-                    end: '2015-02-20'
-                },
-                {
-                    title: 'Party',
-                    start: '2025-02-29T20:00:00'
-                },
-
-                // areas where "Meeting" must be dropped
-                {
-                    id: 'availableForMeeting',
-                    start: '2015-02-11T10:00:00',
-                    end: '2015-02-11T16:00:00',
-                    rendering: 'background'
-                },
-                {
-                    id: 'availableForMeeting',
-                    start: '2015-02-13T10:00:00',
-                    end: '2015-02-13T16:00:00',
-                    rendering: 'background'
-                },
-
-                // red areas where no events can be dropped
-                {
-                    start: '2015-02-24',
-                    end: '2015-02-28',
-                    overlap: false,
-                    rendering: 'background',
-                    color: '#FF6656'
-                },
-                {
-                    start: '2015-02-06',
-                    end: '2015-02-08',
-                    overlap: true,
-                    rendering: 'background',
-                    color: '#FF6656'
-                }
-            ]
-        });
-        // end : Calendar==========
+        
 
         // start: Maps============
 
@@ -1245,5 +458,6 @@
       })(jQuery);
      </script>
   <!-- end: Javascript -->
-    </body>
-@endsection --}}
+</x-app-layout>
+
+@endsection

@@ -57,40 +57,128 @@
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
                     </script>
                 </div>
-    
+{{--     
                 <div class="row">
                     <div class="col-12">
                         <h2 class="contact-title">Get in Touch</h2>
-                    </div>
-                    <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-                            </div>
-                        </form>
-                    </div>
+                    </div> --}}
+                    {{-- <div class="col-lg-8">
+                     <form class="form-contact contact_form" action="{{ route('contact.store') }}" method="post" id="contactForm" novalidate="novalidate">
+    @csrf <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+            </div>
+        </div> --}}
+       <h2>Job Application Form</h2>
+
+               <!-- Add some basic CSS styling -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+
+    .form-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        margin: 30 auto;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    input[type="text"], input[type="email"], textarea, input[type="file"] {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        resize: vertical;
+        height: 150px;
+    }
+
+    .submit-btn {
+        background-color: #fb246a;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    .submit-btn:hover {
+        background-color: #ff1e69;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .success-message {
+        color: green;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+</style>
+
+<!-- Display success message -->
+@if(session('success'))
+    <p class="success-message">{{ session('success') }}</p>
+@endif
+
+<div class="form-container">
+   
+    <form action="{{ route('job.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        <!-- Name -->
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" value="{{ old('name') }}" required>
+        @error('name') <p class="error-message">{{ $message }}</p> @enderror
+
+        <!-- Email -->
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+        @error('email') <p class="error-message">{{ $message }}</p> @enderror
+
+        <!-- Cover Letter (Optional) -->
+        <label for="cover_letter">Cover Letter (Optional)</label>
+        <textarea id="cover_letter" name="cover_letter">{{ old('cover_letter') }}</textarea>
+        @error('cover_letter') <p class="error-message">{{ $message }}</p> @enderror
+
+        <!-- Resume -->
+        <label for="resume">Resume (PDF, DOC, DOCX)</label>
+        <input type="file" id="resume" name="resume" required>
+        @error('resume') <p class="error-message">{{ $message }}</p> @enderror
+
+        <button class = "submit-btn" type="submit">Submit Application</button>
+    </form>
+</div style="display:flex; align-item:center; gap:20px;">
                     <div class="col-lg-3 offset-lg-1">
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-home"></i></span>

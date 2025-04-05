@@ -1,11 +1,12 @@
 <?php
+use App\Http\Controllers\Admin\ContactAdminController;
 
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/index', function () {
     return view('index');
 });
 Route::get('about/', function () {
@@ -45,18 +46,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/view-jobs',[JobController::class,'showJob'])->name('All-Jobs');
     Route::delete('/delete-job/{id}', [JobController::class, 'destroy'])->name('jobs-delete');
 
-    });
-    
-    // Route::get('/job-form-veiew',[JobController::class,'create'])->name('show-new-job');
-    // Route::post('/job-form-veiew',[JobController::class,'store'])->name('add-new-job');
-
-    // |Employe URL
-    
-
-
+    // Route::post('/contact-process', [ContactController::class, 'store'])->name('contact.store');
+    // Route::get('/admin/contact', [ContactAdminController::class, 'index'])->name('admin.contacts.index');
+    Route::get('/job/{id}', [JobController::class, 'show'])->name('jobs.show');
 
 });
+    
+    
 
+    Route::get('/job-application', [JobApplicationController::class, 'create'])->name('job.create');
+    Route::post('/job-application', [JobApplicationController::class, 'store'])->name('job.store');
+    Route::get('/view-applicant', [JobApplicationController::class, 'viewapplicant'])->name('view-user');
 
+});
 
 require __DIR__.'/auth.php';

@@ -138,14 +138,14 @@
                                 <img src="{{ asset('assets/img/icon/job-list1.png') }}" alt="Default Company Logo">
                             @endif
                         </div>
-                        <div class="job-tittle">
-                            <a href="#"><h4>{{ $job->job_title }}</h4></a>
-                            <ul>
-                                <li>{{ $job->company }}</li>
-                                <li><i class="fas fa-map-marker-alt"></i>{{ $job->location ?: 'Not specified' }}</li>
-                                <li>{{ $job->salary ?: 'Not specified' }}</li>
-                            </ul>
-                        </div>
+                 <div class="job-tittle">
+    <a href="{{ route('jobs.show', $job->id) }}"><h4>{{ $job->job_title }}</h4></a>
+    <ul>
+        <li>{{ $job->company }}</li>
+        <li><i class="fas fa-map-marker-alt"></i>{{ $job->location ?: 'Not specified' }}</li>
+        <li>{{ $job->salary ?: 'Not specified' }}</li>
+    </ul>
+</div>
                     </div>
                     <div class="items-link f-right">
                         <a href="#">{{ $job->type ?: 'Not specified' }}</a>

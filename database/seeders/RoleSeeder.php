@@ -43,7 +43,7 @@ class RoleSeeder extends Seeder
             'email' => 'jobseeker@example.com',
             'password' => Hash::make('password'),
         ]);
-        $jobSeeker->assignRole($jobSeeker);
+        $jobSeeker->assignRole($jobSeekerRole);
     }
 
     

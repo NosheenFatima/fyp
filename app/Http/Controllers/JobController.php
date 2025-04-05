@@ -184,4 +184,18 @@ public function destroy($id)
     // You should always return a response (redirect in this case)
     return redirect()->route('All-Jobs')->with('info', 'Deletion process completed.'); // Fallback redirect
 }
+public function show($id)
+{
+    // Using Query Builder
+    $job = DB::table('new_job')->find($id);
+
+    // Or using Eloquent Model (if you have one)
+    // $job = NewJob::findOrFail($id); // findOrFail will automatically return a 404 if the job doesn't exist
+
+    if (!$job) {
+        abort(404); // Handle the case where the job doesn't exist
+    }
+
+    return view('jobdetails', compact('job')); // Create a 'jobs/details.blade.php' view
+}
 }

@@ -23,6 +23,10 @@
             <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}">
             <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
             
+            {{--  --}}
+            
+      <link rel="stylesheet" type="text/css" href="{{asset('asset-temp/css/plugins/font-awesome.min.css')}}"/>
+   <link rel="stylesheet" type="text/css" href="{{asset('asset-temp/css/plugins/fullcalendar.min.css')}}"/>
    </head>
 
    <body>
@@ -44,8 +48,10 @@
            <div class="headder-top header-sticky">
                 <div class="container">
                     <div class="row align-items-center">
+                    
                         <div class="col-lg-3 col-md-2">
                             <!-- Logo -->
+                             
                             <div class="logo">
                                 <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>  
@@ -66,8 +72,17 @@
                                 </div>          
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="register" class="btn head-btn1">Register</a>
-                                    <a href="login" class="btn head-btn2">Login</a>
+                                
+                                    <a href="register" class="btn ">Register</a>
+                                    <a href="login" class="btn head-btn2"  style="background-color:#fb246a; padding:8px 40px">@auth
+    <form  method="POST" action="{{ route('logout') }}  ">
+        @csrf
+        <button type="submit" class="your-button-classes" style="border:none; background-color:transparent; margin-top:8px; color:white;padding: 8px;">Logout</button>
+    </form>
+@else
+    <a href="{{ route('login') }}" class="your-button-classes">Login</a>
+@endauth</a>
+                                
                                 </div>
                             </div>
                         </div>
@@ -78,6 +93,9 @@
                     </div>
                 </div>
            </div>
+       </div>
+       <div>
+         <a href="{{ route('dashboard') }}" class="" style="color:black;">Dashboard</a> 
        </div>
         <!-- Header End -->
     </header>
