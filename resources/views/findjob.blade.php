@@ -83,31 +83,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="items-link f-right">
+                    <div class="items-link f-right" style="margin-left:50px;">
                         <a href="#">{{ $job->type ?: 'Not specified' }}</a>
                         <span>
                             @if ($job->posted_at)
                                 @php
-                                  $postedAt = \Carbon\Carbon::parse($job->posted_at);
-                               $now = \Carbon\Carbon::now();
+                                 $postedAt = \Carbon\Carbon::parse($job->posted_at);
 
-                                if ($postedAt->gt($now)) {
-                              $diffInHoursFuture = $postedAt->diffInHours($now);
-                              echo 'in ' . $diffInHoursFuture . ' hours';
-                             } else {
-    $diffInHours = $now->diffInHours($postedAt);
-    if ($diffInHours < 24) {
-        echo floor($diffInHours) . ' hours ago'; // Use floor() here
-    } elseif ($diffInHours < 168) {
-        echo floor($diffInHours / 24) . ' days ago';
-    } elseif ($diffInHours < 720) {
-        echo floor($diffInHours / 168) . ' weeks ago';
-    } elseif ($diffInHours < 8760) {
-        echo floor($diffInHours / 720) . ' months ago';
-    } else {
-        echo floor($diffInHours / 8760) . ' years ago';
-    }
-}
+echo $postedAt->diffForHumans();
                                 @endphp
                             @else
                                 Not specified

@@ -202,7 +202,7 @@
                             <div class="card box-v2">
                                 <img src="{{asset('asset-temp/img/bg2.jpg')}}" class="card-img-top" alt="Cover Image">
                                 <div class="box-v2-detail text-center mt-n5">
-                                    <img src="{{asset('asset-temp/img/avatar.jpg')}}" class="rounded-circle img-thumbnail" alt="User Avatar" width="100">
+                                    <img src="{{asset('asset-temp/img/avatar.jpg')}}" class="rounded-circle img-thumbnail" alt="User Avatar" width="100" style="margin-left:140px">
                                     <h4 class="card-title mt-2">Akihiko Avaron</h4>
                                 </div>
                                 <div class="card-body text-center" style="background-color:#fb246a;">

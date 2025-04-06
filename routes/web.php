@@ -49,9 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/view-jobs',[JobController::class,'showJob'])->name('All-Jobs');
     Route::delete('/delete-job/{id}', [JobController::class, 'destroy'])->name('jobs-delete');
 
-    // Route::post('/contact-process', [ContactController::class, 'store'])->name('contact.store');
-    // Route::get('/admin/contact', [ContactAdminController::class, 'index'])->name('admin.contacts.index');
-    Route::get('/job/{id}', [JobController::class, 'showJobDetails'])->name('jobs.show');
+    Route::get('/job/{id}', [JobController::class, 'show'])->name('jobs.show');
 
 });
     

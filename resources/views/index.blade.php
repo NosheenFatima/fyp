@@ -152,26 +152,9 @@
                         <span>
                             @if ($job->posted_at)
                                 @php
-                                  $postedAt = \Carbon\Carbon::parse($job->posted_at);
-                               $now = \Carbon\Carbon::now();
+                               $postedAt = \Carbon\Carbon::parse($job->posted_at);
 
-                                if ($postedAt->gt($now)) {
-                              $diffInHoursFuture = $postedAt->diffInHours($now);
-                              echo 'in ' . $diffInHoursFuture . ' hours';
-                             } else {
-                    $diffInHours = $now->diffInHours($postedAt);
-                    if ($diffInHours < 24) {
-                        echo $diffInHours . ' hours ago';
-                    } elseif ($diffInHours < 168) {
-                        echo floor($diffInHours / 24) . ' days ago';
-                    } elseif ($diffInHours < 720) {
-                        echo floor($diffInHours / 168) . ' weeks ago';
-                    } elseif ($diffInHours < 8760) {
-                        echo floor($diffInHours / 720) . ' months ago';
-                    } else {
-                        echo floor($diffInHours / 8760) . ' years ago';
-                    }
-                }
+echo $postedAt->diffForHumans();
                                 @endphp
                             @else
                                 Not specified
@@ -319,7 +302,7 @@
                             <div class="support-caption">
                                 <p class="pera-top">Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit anim laborumuis au dolor in voluptate velit cillum.</p>
                                 <p>Mollit anim laborum.Duis aute irufg dhjkolohr in re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur signjnt occa cupidatat non inulpadeserunt mollit aboru. temnthp incididbnt ut labore mollit anim laborum suis aute.</p>
-                                <a href="about.html" class="btn post-btn">Post a job</a>
+                                <a href="{{ route('find') }}" class="btn post-btn">View a job</a>
                             </div>
                         </div>
                     </div>
