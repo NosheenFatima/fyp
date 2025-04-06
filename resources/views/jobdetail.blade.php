@@ -1,7 +1,7 @@
 @extends('layouts.masterlayout');
 @section('content')
 
-               <!-- Hero Area Start-->
+        <!-- Hero Area Start-->
         <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
             <div class="container">
@@ -23,23 +23,19 @@
                     <!-- Left Content -->
                     <div class="col-xl-7 col-lg-8">
                         <!-- job single -->
-                        <div class="single-job-items mb-50">
-                            <div class="job-items">
-                                <div class="company-img company-img-details">
-                                    <a href="#"><img src="assets/img/icon/job-list1.png" alt=""></a>
-                                </div>
-                                <div class="job-tittle">
-                                    <a href="#">
-                                        <h4>Digital Marketer</h4>
-                                    </a>
-                                    <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                     <div class="container mt-5">
+                        
+    <h2>{{ $job->job_title }}</h2>
+    <p><strong>Company:</strong> {{ $job->company }}</p>
+    <p><strong>Location:</strong> {{ $job->location ?: 'Not specified' }}</p>
+    <p><strong>Salary:</strong> {{ $job->salary ?: 'Not specified' }}</p>
+    <p><strong>Type:</strong> {{ $job->type ?: 'Not specified' }}</p>
+   
+    @if ($job->company_logo)
+        <img src="{{ asset('storage/' . $job->company_logo) }}" alt="{{ $job->company }} Logo" class="img-fluid mb-3">
+    @endif
+
+    </div>
                           <!-- job single End -->
                        
                         <div class="job-post-details">
@@ -115,6 +111,5 @@
                 </div>
             </div>
         </div>
-        <!-- job post company End -->
         <!-- job post company End -->
 @endsection

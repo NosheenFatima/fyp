@@ -185,15 +185,25 @@ public function destroy($id)
     // You should always return a response (redirect in this case)
     return redirect()->route('All-Jobs')->with('info', 'Deletion process completed.'); // Fallback redirect
 }
-public function showJobDetails($id)
+// show the detail page
+public function show(Request $request, $id = null)
 {
-    $job = DB::table('new_job')->find($id);
+    if ($id) {
+        // An ID is present in the route, try to fetch the specific job
+        $job = DB::table('new_job')->find($id); // Or Job::find($id) with Eloquent
 
-    if (!$job) {
-        abort(404); // Handle if the job doesn't exist
+        if ($job) {
+            // Job found, load the specific job details view
+            return view('jobdetail', compact('job')); // Create a view named 'specific.blade.php' in a 'jobdetails' directory
+        } else {
+            // ID was provided, but no job found
+            // You might want to redirect back, show an error, or load a default view
+            return view('jobdetails')->with('error', 'Job not found.');
+        }
+    } else {
+        // No ID is present in the route, load the other view
+        return view('jobdetails'); // Create a view named 'general.blade.php' in a 'jobdetails' directory
     }
-
-    return view('jobdetails', compact('job'));
 }
 
 }
