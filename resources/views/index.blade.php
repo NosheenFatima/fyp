@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="search-form">
-                                        <a href="#">Find job</a>
+                                        <a href="{{ route('find') }}">Find job</a>
                                     </div>	
                                 </form>	
                             </div>
@@ -208,7 +208,7 @@
                                 <span class="flaticon-search"></span>
                             </div>
                             <div class="process-cap">
-                               <h5>1. Search a job</h5>
+                               <h5><a  href="{{ route('find') }}"> 1. Search a job</a></h5>
                                <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
                             </div>
                         </div>
@@ -219,7 +219,8 @@
                                 <span class="flaticon-curriculum-vitae"></span>
                             </div>
                             <div class="process-cap">
-                               <h5>2. Apply for job</h5>
+                            <h5><a  href="{{ route('connects') }}">2. Apply for job</a></h5>
+                            
                                <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
                             </div>
                         </div>
@@ -230,7 +231,8 @@
                                 <span class="flaticon-tour"></span>
                             </div>
                             <div class="process-cap">
-                               <h5>3. Get your job</h5>
+                             <h5><a  href="{{ route('find') }}">3. Get your job</a></h5>
+                              
                                <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
                             </div>
                         </div>

@@ -17,13 +17,13 @@ Route::get('about/', function () {
 });
 Route::get('findjob/', function () {
     return view('findjob');
-});
+})->name('find');
 Route::get('jobdetails/', function () {
     return view('jobdetails');
 });
 Route::get('contact/', function () {
     return view('contact');
-});
+})->name('connects');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -1,66 +1,68 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# JobFinder
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+JobFinder is a full-stack website built using Laravel 12, providing a platform for employers to post job openings and for job seekers to find their next career opportunity.
 
-## About Laravel
+## Project Overview
+JobFinder aims to streamline the job search process by connecting employers with qualified candidates across various industries and locations. The platform offers features for browsing job listings, viewing detailed job information, and potentially applying for positions.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installation
+To install JobFinder, follow these steps:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Clone the repository from GitHub.
+2. Run `composer install` to install all project dependencies.
+3. Copy the `.env.example` file to `.env` and configure your database and other environment settings.
+4. Run `php artisan key:generate` to generate the application key.
+5. Run `php artisan migrate --seed` to create the database tables and seed them with initial data (if available).
+6. Optionally, run `php artisan storage:link` to create a symbolic link from `public/storage` to `storage/app/public` if you are using local storage for uploads.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Roles and Permissions
+JobFinder implements a role-based access control system with the following roles:
 
-## Learning Laravel
+1. **Admin**: Has full control over the platform, including managing job categories,view the applicants, adding a new job, view, update and delete .
+2. **Employer**: Can register their company, post new job listings, manage their active postings (edit, delete), and potentially view applications .
+3. **Job Seeker**: view  job categories,view job listings.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Packages Used
+JobFinder utilizes the following Laravel packages:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Breeze**: Provides a minimal and secure starting point for authentication, including login, registration, and password reset functionality.
+2. **Spatie Permission**: Implements a flexible and powerful system for managing user roles and permissions, controlling access to different features of the platform.
+## Database
+JobFinder uses MySQL as its relational database management system to store all application data, including user accounts, employer profiles, job listings, job categories, and any application information.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Credentials
+Here are the default credentials for testing purposes (these might be seeded during installation):
 
-## Laravel Sponsors
+* **Admin**:
+    + Email: admin@example.com
+    + Password:'password'
+* **Employer**:
+    + Email:Employee@example.com
+   + Password:'password'
+* **Job Seeker**:
+    + Email: jobseeker@example.com
+    + Password:'password'
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
 ## Contributing
+To contribute to JobFinder, please follow these guidelines:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Fork the repository on GitHub.
+2. Create a new branch with a descriptive name for your feature or bug fix.
+3. Implement your changes and ensure they are well-tested.
+4. Commit your changes with clear and concise commit messages.
+5. Push your branch to your forked repository.
+6. Submit a pull request to the main repository, detailing the changes you've made and the problem they solve.
 
-## Code of Conduct
+## Screenshots
+![Admin Dashboard](file:///C:/Users/LENOVO/Downloads/Screenshot%202025-04-06%20122410.jpg)
+![Job Detail Page](file:///C:/Users/LENOVO/Downloads/Screenshot%202025-04-06%20122134.jpg)
+![Employer Dashboard](C:/Users/LENOVO/Downloads/Screenshot%202025-04-06%20121642.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Remember to replace the `LINK_TO_YOUR_SCREENSHOT_HERE` placeholders with the actual URLs or paths to your project's screenshots.**
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+

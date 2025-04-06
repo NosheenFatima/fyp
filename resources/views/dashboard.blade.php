@@ -67,15 +67,13 @@
     <a href='{{ route('all-categories') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
         <i class="fas fa-list"></i> View Jobs Categories
     </a>
-    {{-- <a href='{{ route('show-new-job') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
+    <a href='{{ route('show-new-job') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
         <i class="fas fa-plus-circle"></i> Add new Job
-    </a> --}}
+    </a>
     <a href='{{ route('All-Jobs') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
         <i class="fas fa-briefcase"></i> View Jobs
     </a>
-    <a href='{{ route('view-user') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
-        <i class="fas fa-users"></i> View Applicant
-    </a>
+   
 </div>
                         </div>
                     </li>
@@ -207,7 +205,7 @@
                                     <img src="{{asset('asset-temp/img/avatar.jpg')}}" class="rounded-circle img-thumbnail" alt="User Avatar" width="100">
                                     <h4 class="card-title mt-2">Akihiko Avaron</h4>
                                 </div>
-                                <div class="card-body text-center">
+                                <div class="card-body text-center" style="background-color:#fb246a;">
                                     <div class="row">
                                         <div class="col-4">
                                             <h3>2.000</h3>

@@ -74,13 +74,13 @@
                                 <div class="header-btn d-none f-right d-lg-block">
                                 
                                     <a href="register" class="btn ">Register</a>
-                                    <a href="login" class="btn head-btn2"  style="background-color:#fb246a; padding:8px 40px">@auth
+  @auth
     <form  method="POST" action="{{ route('logout') }}  ">
         @csrf
         <button type="submit" class="your-button-classes" style="border:none; background-color:transparent; margin-top:8px; color:white;padding: 8px;">Logout</button>
     </form>
 @else
-    <a href="{{ route('login') }}" class="your-button-classes">Login</a>
+    <a href="{{ route('login') }}" class="your-button-classes"  style="background-color:#fb246a; padding:18px 40px">Login</a>
 @endauth</a>
                                 
                                 </div>
