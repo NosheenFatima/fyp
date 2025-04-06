@@ -59,7 +59,7 @@ To contribute to JobFinder, please follow these guidelines:
 ![Job Detail Page](file:///C:/Users/LENOVO/Downloads/Screenshot%202025-04-06%20122134.jpg)
 ![Employer Dashboard](C:/Users/LENOVO/Downloads/Screenshot%202025-04-06%20121642.png)
 
-**Remember to replace the `LINK_TO_YOUR_SCREENSHOT_HERE` placeholders with the actual URLs or paths to your project's screenshots.**
+
 
 
 
