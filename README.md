@@ -8,12 +8,10 @@ JobFinder aims to streamline the job search process by connecting employers with
 ## Installation
 To install JobFinder, follow these steps:
 
-1. Clone the repository from GitHub.
-2. Run `composer install` to install all project dependencies.
-3. Copy the `.env.example` file to `.env` and configure your database and other environment settings.
-4. Run `php artisan key:generate` to generate the application key.
-5. Run `php artisan migrate --seed` to create the database tables and seed them with initial data (if available).
-6. Optionally, run `php artisan storage:link` to create a symbolic link from `public/storage` to `storage/app/public` if you are using local storage for uploads.
+ Clone the repository from GitHub.
+2. Run `composer install` to install dependencies.
+3. Run `php artisan migrate` to migrate the database schema.
+4. Configure the application settings in the `.env` file.
 
 ## Roles and Permissions
 JobFinder implements a role-based access control system with the following roles:
