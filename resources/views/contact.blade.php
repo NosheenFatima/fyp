@@ -179,7 +179,7 @@
         <button class = "submit-btn" type="submit">Submit Application</button>
     </form>
 </div style="display:flex; align-item:center; gap:20px;">
-                    <div class="col-lg-3 offset-lg-1">
+                    <div class="col-lg-3 offset-lg-1 "style="max-width:100%;display:flex;gap:150px;">
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-home"></i></span>
                             <div class="media-body">
