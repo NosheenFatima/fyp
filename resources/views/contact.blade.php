@@ -167,7 +167,7 @@
         @error('email') <p class="error-message">{{ $message }}</p> @enderror
 
         <!-- Cover Letter (Optional) -->
-        <label for="cover_letter">Cover Letter (Optional)</label>
+        <label for="cover_letter"> About intrested Job</label>
         <textarea id="cover_letter" name="cover_letter">{{ old('cover_letter') }}</textarea>
         @error('cover_letter') <p class="error-message">{{ $message }}</p> @enderror
 
