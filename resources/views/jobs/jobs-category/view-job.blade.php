@@ -44,14 +44,17 @@
                             <td>{{ $job->salary ?: 'N/A' }}</td>
                             <td>{{ $job->type ?: 'N/A' }}</td>
                             <td>    {{ $job->posted_at ? \Carbon\Carbon::parse($job->posted_at)->diffForHumans() : 'N/A' }}
-</td>
+</td>@role('admin')
                             <td style="display: flex; gap:6px;">
                                
                                 <a href="{{ route('show-new-job', $job->id) }}" class="btn btn-sm btn-primary">Update</a>
                                 <form action="{{ route('jobs-delete', $job->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
+                   
+                   
                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
+                    @endrole
                 </form>
                             </td>
                         </tr>

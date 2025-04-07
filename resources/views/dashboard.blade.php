@@ -2,7 +2,11 @@
 
 @section('content')
 <x-app-layout>
-
+    <x-slot name="header" style="display:none;">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{-- {{ __('Dashboard') }} --}}
+        </h2>
+    </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" style="max-width:100%; margin:0;">
@@ -74,20 +78,13 @@
                         </div>
                     </li>
                     @endrole
-                         @role('jobSeeker')
+                        
                     <li class="nav-item mt-3">
                         <div class="d-grid gap-2 w-100">    <div style="width: 100%;height: 100%;color:#da2461;display: flex;flex-direction: column;gap: 30px;">
    
-    <a href='{{ route('all-categories') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
-        <i class="fas fa-list"></i> View Jobs Categories
-    </a>
-
-    <a href='{{ route('All-Jobs') }}' class='btn btn-primary btn-sm' style="color:#fff; width:80%;">
-        <i class="fas fa-briefcase"></i> View Jobs
-    </a>
+    
   
 </div>
- @endrole
                         </div>
                     </li>
                   
@@ -112,11 +109,9 @@
                         <h3 class="animated fadeInLeft" style="color:#fb246a; font-size:30px;">Employee Dashboard</h3>  
                     </div>
                      @endrole
-                      @role('jobSeeker')
-                     <div class="col-md-6">
-                        <h3 class="animated fadeInLeft" style="color:#fb246a; font-size:30px;">Applicant Dashboard</h3>  
-                    </div>
-                     @endrole
+                      
+                     
+                     
                     <div class="col-md-6 text-end">
                         <div class="d-flex justify-content-end align-items-center">
                             <div class="me-3">
