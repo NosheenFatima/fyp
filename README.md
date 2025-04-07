@@ -53,9 +53,9 @@ To contribute to JobFinder, please follow these guidelines:
 6. Submit a pull request to the main repository, detailing the changes you've made and the problem they solve.
 
 ## Screenshots
-![Admin Dashboard](file:///C:/Users/LENOVO/Downloads/Screenshot%202025-04-06%20122410.jpg)
-![Job Detail Page](file:///C:/Users/LENOVO/Downloads/Screenshot%202025-04-06%20122134.jpg)
-![Employer Dashboard](C:/Users/LENOVO/Downloads/Screenshot%202025-04-06%20121642.png)
+![Admin Dashboard](https://github.com/NosheenFatima/fyp/blob/main/public/assets/img/screenshots/Screenshot%202025-04-06%20122410.jpg)
+![Job Detail Page](https://github.com/NosheenFatima/fyp/blob/main/public/assets/img/screenshots/Screenshot%202025-04-06%20122134.jpg)
+![Employer Dashboard](https://github.com/NosheenFatima/fyp/blob/main/public/assets/img/screenshots/Screenshot%202025-04-06%2012164..jpg)
 
 
 
