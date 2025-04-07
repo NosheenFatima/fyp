@@ -27,6 +27,11 @@
             
       <link rel="stylesheet" type="text/css" href="{{asset('asset-temp/css/plugins/font-awesome.min.css')}}"/>
    <link rel="stylesheet" type="text/css" href="{{asset('asset-temp/css/plugins/fullcalendar.min.css')}}"/>
+   <style>
+   .max-w-7xl.mx-auto.px-4.sm\:px-6.lg\:px-8 {
+    display: none;
+}
+   </style>
    </head>
 
    <body>
@@ -95,7 +100,7 @@
            </div>
        </div>
        <div>
-         <a href="{{ route('dashboard') }}" class="" style="color:black;">Dashboard</a> 
+         <a href="{{ route('dashboard') }}" class="" style="color:black; margin-left:50px;"><i class="fa fa-arrow-left fs-4"> </i>  Dashboard</a> 
        </div>
         <!-- Header End -->
     </header>
