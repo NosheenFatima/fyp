@@ -78,7 +78,7 @@
                         </div>
                     </li>
                     @endrole
-                        @role('jobSeeker')
+                        
                     <li class="nav-item mt-3">
                         <div class="d-grid gap-2 w-100">    <div style="width: 100%;height: 100%;color:#da2461;display: flex;flex-direction: column;gap: 30px;">
    
@@ -93,7 +93,7 @@
 </div>
                         </div>
                     </li>
-                    @endrole
+                  
                     <li class="nav-item mt-3">
                         <a href="/" class="nav-link align-middle px-0 text-dark">
                             <i class="fa fa-arrow-left fs-4"></i> <span class="ms-1 d-none d-sm-inline">Go Back To The Page</span>
@@ -115,11 +115,11 @@
                         <h3 class="animated fadeInLeft" style="color:#fb246a; font-size:30px;">Employee Dashboard</h3>  
                     </div>
                      @endrole
-                       @role('jobSeeker')
+                      
                      <div class="col-md-6">
                         <h3 class="animated fadeInLeft" style="color:#fb246a; font-size:30px;">Applicant Dashboard</h3>  
                     </div>
-                     @endrole
+                     
                     <div class="col-md-6 text-end">
                         <div class="d-flex justify-content-end align-items-center">
                             <div class="me-3">

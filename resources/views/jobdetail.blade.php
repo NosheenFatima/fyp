@@ -25,15 +25,19 @@
                         <!-- job single -->
                      <div class="container mt-5">
                         
-    <h2>{{ $job->job_title }}</h2>
-    <p><strong>Company:</strong> {{ $job->company }}</p>
-    <p><strong>Location:</strong> {{ $job->location ?: 'Not specified' }}</p>
-    <p><strong>Salary:</strong> {{ $job->salary ?: 'Not specified' }}</p>
-    <p><strong>Type:</strong> {{ $job->type ?: 'Not specified' }}</p>
-   
-    @if ($job->company_logo)
-        <img src="{{ asset('storage/' . $job->company_logo) }}" alt="{{ $job->company }} Logo" class="img-fluid mb-3">
-    @endif
+    <div class="container">
+        <h2>{{ $job->job_title }}</h2>
+        <p><strong>Company:</strong> {{ $job->company }}</p>
+        <p><strong>Location:</strong> {{ $job->location ?: 'Not specified' }}</p>
+        <p><strong>Salary:</strong> {{ $job->salary ?: 'Not specified' }}</p>
+        <p><strong>Type:</strong> {{ $job->type ?: 'Not specified' }}</p>
+
+        @if ($job->company_logo)
+            <img src="{{ asset('storage/' . $job->company_logo) }}" alt="{{ $job->company }} Logo" class="img-fluid mb-3">
+        @endif
+
+    
+    </div>
 
     </div>
                           <!-- job single End -->
