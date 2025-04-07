@@ -47,7 +47,7 @@
 </td>
                             <td style="display: flex; gap:6px;">
                                
-                                <a href="{{ route('show-new-job', $job->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                <a href="{{ route('show-new-job', $job->id) }}" class="btn btn-sm btn-primary">Update</a>
                                 <form action="{{ route('jobs-delete', $job->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')

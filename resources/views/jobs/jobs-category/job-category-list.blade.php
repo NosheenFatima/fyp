@@ -31,7 +31,7 @@
             <td>
                 {{-- {{ route('jobs.category.edit', $category->id) }} --}}
                 {{-- <a href="" class="btn btn-sm btn-primary">Edit</a> --}}
-                <a href="{{ route('show-category-form', $category->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{{ route('show-category-form', $category->id) }}" class="btn btn-sm btn-primary">Update</a>
                 <form action="{{ route('jobs.category.delete', $category->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
